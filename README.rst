@@ -40,7 +40,7 @@ TASK DESCRIPTION:
 토큰 발급 API
 Request Body
 
-``
+```
 POST /token HTTP/1.1
 Content-Type: application/json
 
@@ -61,4 +61,4 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 
 {"success": true, "message": "성공"}
-``
+```
