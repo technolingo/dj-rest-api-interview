@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=handysapi
+POSTGRES_USER=wQBcKCgNWvusZuHBJDdBpwHyCRhhTNcc
+POSTGRES_PASSWORD=osunKSHBQMPCopIzohQ9GBgOmAigieGPfiKM7BRpJYvRsUMAvaA5dgLvBp02rEcE
