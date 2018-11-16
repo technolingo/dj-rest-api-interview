@@ -1,15 +1,13 @@
 Coding Interview Task - Django REST API
 ==========
 
-**GET STARTED:**
+**GET STARTED**::
+    docker-compose -f local.yml build
+    docker-compose -f local.yml up
 
-``docker-compose -f local.yml build``
-``docker-compose -f local.yml up``
-
-**MANAGEMENT COMMANDS:**
-
-``docker-compose -f local.yml run --rm django python manage.py migrate``
-``docker-compose -f local.yml run --rm django python manage.py createsuperuser``
+**MANAGEMENT COMMANDS**::
+    docker-compose -f local.yml run --rm django python manage.py migrate
+    docker-compose -f local.yml run --rm django python manage.py createsuperuser
 
 **FEATURES:**
 
