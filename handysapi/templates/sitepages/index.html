@@ -1,13 +1,32 @@
 {% extends "base.html" %}
 
+{% block css %}
+  {{block.super}}
+  <style media="screen">
+    strong {
+      margin-right: 15px;
+    }
+    ul li {
+      list-style: none;
+    }
+  </style>
+{% endblock css %}
 
 {% block content %}
+  <br />
+  <br />
+  <br />
   <ul>
-    <li><a href="/token">Get Token</a></li>
-    <li></li>
-    <li><a href="/permission/list">List Permission</a></li>
-    <li><a href="/permission/view">View Permission</a> (inherites from List)</li>
-    <li><a href="/permission/edit">Edit Permission</a></li>
-    <li><a href="/permission/delete">Delete Permission</a> (inherites from Edit)</li>
+    <li><strong>/token</strong> Get Token</li>
+    <li><br /></li>
+    <li><strong>/my_profile</strong> IsAuthenticated Permission</li>
+    <li><br /></li>
+    <li>더미 커스텀 권한들:</li>
+    <li><strong>/permission/list</strong> List Permission</li>
+    <li><strong>/permission/view</strong> View Permission (inherites from List)</li>
+    <li><strong>/permission/edit</strong> Edit Permission</li>
+    <li><strong>/permission/delete</strong> Delete Permission (inherites from Edit)</li>
+    <li><br /></li>
+    <li><p>코드는 주로 <em>permissions.api</em> 하고 <em>users.api</em> 이 두까지 모듈에 있습니다.</p></li>
   </ul>
 {% endblock content %}
