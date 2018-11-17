@@ -2,5 +2,12 @@
 
 
 {% block content %}
-  <p>한국어 URL Prefix: /ko/</p>
+  <ul>
+    <li><a href="/token">Get Token</a></li>
+    <li></li>
+    <li><a href="/permission/read">Read Permission</a></li>
+    <li><a href="/permission/write">Write Permission</a> (inherites from read)</li>
+    <li><a href="/permission/listen">Listen Permission</a></li>
+    <li><a href="/permission/watch">Watch Permission</a> (inherites from listen)</li>
+  </ul>
 {% endblock content %}
