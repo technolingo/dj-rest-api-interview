@@ -9,8 +9,8 @@ urlpatterns = [
         name='obtain_token'
     ),
     url(
-        regex=r'^detail/$',
+        regex=r'^my_profile/$',
         view=views.UserDetailAPIView.as_view(),
-        name='detail'
+        name='my_profile'
     ),
 ]

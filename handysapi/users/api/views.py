@@ -1,11 +1,7 @@
 from django.shortcuts import get_object_or_404
 
-from rest_framework import parsers, renderers
-#from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
-#from rest_framework.compat import coreapi, coreschema
 from rest_framework.response import Response
-#from rest_framework.schemas import ManualSchema
 from rest_framework.views import APIView
 
 from rest_framework.generics import RetrieveAPIView
@@ -17,10 +13,7 @@ from ..models import User
 
 class ObtainAuthToken(APIView):
     '''A Custom ObtainAuthToken APIView that uses email instead of username.'''
-    throttle_classes = ()
     permission_classes = ()
-    parser_classes = (parsers.FormParser, parsers.MultiPartParser, parsers.JSONParser,)
-    renderer_classes = (renderers.JSONRenderer,)
     serializer_class = AuthTokenSerializer
 
     def post(self, request, *args, **kwargs):
@@ -34,6 +27,7 @@ class ObtainAuthToken(APIView):
 
 
 class UserDetailAPIView(RetrieveAPIView):
+    '''A simple user profile view to test token authentication in headers'''
     permission_classes = [IsAuthenticated]
     serializer_class = UserModelSerializer
 

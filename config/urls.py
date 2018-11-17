@@ -14,6 +14,7 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     # API URLs
     path("", include("handysapi.users.api.urls")),
+    path("permission/", include("handysapi.permissions.api.urls")),
 ] + static(
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
 )

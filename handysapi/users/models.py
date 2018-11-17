@@ -14,6 +14,18 @@ class User(AbstractUser):
 
     birthday = models.DateField(_('Birthday'),null=True, blank=True)
 
+    MEMBERSHIP_STATUS_CHOICES = (
+        ('0', 'Free'),
+        ('1', 'Premium'),
+        ('2', 'Enterprise'),
+    )
+    membership_status = models.CharField(
+        _('Membership'),
+        max_length=1,
+        choices=MEMBERSHIP_STATUS_CHOICES,
+        default='0'
+    )
+
     def __str__(self):
         if self.birthday:
             born = self.birthday
@@ -23,6 +35,10 @@ class User(AbstractUser):
                 today.year - born.year - ((today.month, today.day) < (born.month, born.day))
             )
         return "Hi, I'm {}.".format(self.name)
+
+    def get_membership_int(self):
+        '''convert str into int, thus making it easier to compare'''
+        return int(self.membership_status)
 
     def get_absolute_url(self):
         return reverse("users:detail", kwargs={"username": self.username})
