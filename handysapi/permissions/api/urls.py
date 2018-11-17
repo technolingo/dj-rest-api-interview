@@ -4,22 +4,22 @@ from . import views
 app_name = "permissions"
 urlpatterns = [
     url(
-        regex=r'^list/$',
+        regex=r'^list$',
         view=views.DummyListAPIView.as_view(),
         name='list'
     ),
     url(
-        regex=r'^view/$',
+        regex=r'^view$',
         view=views.DummyViewAPIView.as_view(),
         name='view'
     ),
     url(
-        regex=r'^edit/$',
+        regex=r'^edit$',
         view=views.DummyEditAPIView.as_view(),
         name='edit'
     ),
     url(
-        regex=r'^delete/$',
+        regex=r'^delete$',
         view=views.DummyDeleteAPIView.as_view(),
         name='delete'
     ),

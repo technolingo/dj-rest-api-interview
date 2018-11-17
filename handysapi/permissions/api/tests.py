@@ -10,7 +10,8 @@ from datetime import date
 
 
 class APIPermissionsTestCase(APITestCase):
-
+    '''Test custom permission inheritance and status codes'''
+    
     def setUp(self):
         user = User.objects.create(
             email='hello@example.com',

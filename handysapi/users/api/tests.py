@@ -9,7 +9,8 @@ from datetime import date
 
 
 class UserAPITestCase(APITestCase):
-
+    '''Test ObtainAuthToken APIView and token authentication'''
+    
     def setUp(self):
         user = User.objects.create(
             email='hello@example.com',

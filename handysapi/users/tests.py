@@ -7,6 +7,7 @@ from datetime import date
 
 
 class UserTestCase(TestCase):
+    '''A simple test case for user creation and token generation'''
 
     def setUp(self):
         user = User.objects.create(

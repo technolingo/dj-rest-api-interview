@@ -13,12 +13,14 @@ MANAGEMENT COMMANDS::
 
 FEATURES:
 
-- 12-Factor setup.
+- 12-Factor Setup
 - Docker
 - Python/Django
 - Django-REST-Framework
 - Django ORM, PostgreSQL
-- Permissions
+- Custom Permissions
+- Permission Inheritance
+- Unit Testing
 
 -----
 
@@ -63,4 +65,3 @@ TASK DESCRIPTION:
         Content-Type: application/json
 
         {"success": true, "message": "성공"}
-    
