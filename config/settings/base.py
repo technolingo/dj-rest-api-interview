@@ -247,20 +247,6 @@ ACCOUNT_ADAPTER = 'handysapi.users.adapters.AccountAdapter'
 SOCIALACCOUNT_ADAPTER = 'handysapi.users.adapters.SocialAccountAdapter'
 
 
-# i18n INTERNATIONALISATION & LOCALISATION
-
-# Localisation PO Files
-LOCALE_PATHS = (
-    str(APPS_DIR.path('locale')),
-)
-
-# Site Languages
-LANGUAGES = (
-    ("en", "English"),
-    ("ko", "Korean")
-)
-
-
 # DJANGO REST FRAMEWORK
 # ================================================================================
 DEFAULT_RENDERER_CLASSES = (
