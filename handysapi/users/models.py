@@ -26,6 +26,14 @@ class User(AbstractUser):
         default='0'
     )
 
+    class Meta:
+        permissions = (
+            ("can_list_dummy", "A dummy permission for listing objects"),
+            ("can_view_dummy", "A dummy permission for viewing objects"),
+            ("can_edit_dummy", "A dummy permission for editing objects"),
+            ("can_delete_dummy", "A dummy permission for deleting objects"),
+        )
+
     def __str__(self):
         if self.birthday:
             born = self.birthday

@@ -1,26 +1,42 @@
 from rest_framework.permissions import BasePermission
 
+'''
+    1. DummyDeletePermission은 부모 관한이고 DummyEditPermission은 DummyDeletePermission의 자식입니다.
+    2. DummyViewPermission은 DummyEditPermission의 자식이지만 DummyDeletePermission의 관한을 가지지 않습니다. (1 level만)
+'''
 
-class DummyListPermission(BasePermission):
 
-    def has_permission(self, request, view):
-        return request.user.is_authenticated
+class DummyDeletePermission(BasePermission):
 
-class DummyViewPermission(DummyListPermission):
-
-    def has_permission(self, request, view):
-        # get_membership_int() will return 0, 1, or 2
-        # indicating different levels of membership status
-        sup = super(DummyViewPermission, self).has_permission(request, view)
-        return sup and request.user.get_membership_int() > 0
-
-class DummyEditPermission(BasePermission):
+    def has_current_level_permission(self, request, view):
+        return request.user.has_perm('users.can_delete_dummy')
 
     def has_permission(self, request, view):
-        return request.user.is_authenticated
+        return self.has_current_level_permission(request, view)
 
-class DummyDeletePermission(DummyEditPermission):
+class DummyEditPermission(DummyDeletePermission):
+
+    def has_current_level_permission(self, request, view):
+        return request.user.has_perm('users.can_edit_dummy')
 
     def has_permission(self, request, view):
-        sup = super(DummyDeletePermission, self).has_permission(request, view)
-        return sup and request.user.get_membership_int() > 1
+        sup = super(DummyEditPermission, self).has_current_level_permission(request, view)
+        return sup or self.has_current_level_permission(request, view)
+
+class DummyViewPermission(DummyEditPermission):
+
+    def has_current_level_permission(self, request, view):
+        return request.user.has_perm('users.can_view_dummy')
+
+    def has_permission(self, request, view):
+        sup = super(DummyViewPermission, self).has_current_level_permission(request, view)
+        return sup or self.has_current_level_permission(request, view)
+
+class DummyListPermission(DummyViewPermission):
+
+    def has_current_level_permission(self, request, view):
+        return request.user.has_perm('users.can_list_dummy')
+
+    def has_permission(self, request, view):
+        sup = super(DummyListPermission, self).has_current_level_permission(request, view)
+        return sup or self.has_current_level_permission(request, view)
