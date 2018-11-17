@@ -22,12 +22,15 @@
     <li><strong>/my_profile</strong> IsAuthenticated Permission</li>
     <li><br /></li>
     <li>더미 커스텀 권한들:</li>
-    <li><strong>/permission/list</strong> List Permission</li>
-    <li><strong>/permission/view</strong> View Permission (inherites from List)</li>
-    <li><strong>/permission/edit</strong> Edit Permission</li>
-    <li><strong>/permission/delete</strong> Delete Permission (inherites from Edit)</li>
+    <li><strong>/permission/delete</strong> Delete Permission (부모 관한)</li>
+    <li><strong>/permission/edit</strong> Edit Permission (Delete의 자식 관한)</li>
+    <li><strong>/permission/view</strong> View Permission (Edit의 자식 관한)</li>
+    <li><strong>/permission/list</strong> List Permission (View의 자식 관한)</li>
     <li><br /></li>
-    <li><p>코드는 주로 <em>permissions.api</em> 하고 <em>users.api</em> 이 두까지 모듈에 있습니다.</p></li>
+    <li>코드의 위치:</li>
+    <li><em>users.api</em></li>
+    <li><em>users.tests</em></li>
+    <li><em>permissions.api</em></li>
     <li><br /></li>
     <li>Unit Testing:</li>
     <li>docker-compose -f local.yml run --rm django python manage.py test</li>
