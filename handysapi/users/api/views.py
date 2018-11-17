@@ -1,5 +1,4 @@
 from django.shortcuts import get_object_or_404
-from django.utils.translation import ugettext as _
 
 from rest_framework import parsers, renderers
 #from rest_framework.authtoken.views import ObtainAuthToken
@@ -31,9 +30,7 @@ class ObtainAuthToken(APIView):
         user = serializer.validated_data['user']
         token, created = Token.objects.get_or_create(user=user)
 
-        if token:
-            return Response({'success': True, 'message': _('Success'), 'token': token.key})
-        return Response({'success': False, 'message': _('Failure')})
+        return Response({'success': True, 'message': '성공', 'token': token.key})
 
 
 class UserDetailAPIView(RetrieveAPIView):
