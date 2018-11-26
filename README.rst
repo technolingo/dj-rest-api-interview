@@ -1,4 +1,4 @@
-Coding Interview Task - Django REST API
+Coding Task - Django REST API
 ==================================================
 
 GET STARTED::
@@ -46,7 +46,7 @@ TASK DESCRIPTION:
         POST /token HTTP/1.1
         Content-Type: application/json
 
-        {"email": "hello@handys.co.kr", "password": "hello_password?"}
+        {"email": "hello@example.com", "password": "asdf1235ADG!8"}
 
     Response Body (Success)::
 
